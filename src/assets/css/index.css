@@ -1,0 +1,59 @@
+#container-desc {
+	width: 100%; /* Sesuaikan dengan lebar kontainer Anda */
+	height: 100px;
+	display: -webkit-box; /* Mendukung Safari dan Chrome */
+	-webkit-line-clamp: 4; /* Batasan jumlah baris yang akan ditampilkan */
+	-webkit-box-orient: vertical; /* Mengatur orientasi kotak */
+	overflow: hidden; /* Mengatur overflow menjadi tersembunyi */
+	position: relative;
+	text-overflow: ellipsis;
+}
+
+#container-desc::before {
+	content: "";
+	position: absolute;
+	bottom: 0;
+	right: 0;
+	background: linear-gradient(to right, ellipsis, white 50%);
+	width: 100%;
+	height: 1.5em; /* Tinggi gradien */
+}
+
+@media only screen and (max-width: 900px) {
+	.container-card {
+		width: 90%;
+	}
+
+	.container-card section {
+		flex-direction: column;
+	}
+
+	.container-card button {
+		width: 100%;
+	}
+
+	.container-card .card-download {
+		text-align: center;
+	}
+	.container-card .left {
+		flex: 100%;
+	}
+
+	.container-card .right {
+		margin-left: 0;
+	}
+}
+
+@media only screen and (max-width: 550px) {
+	.container-card {
+		width: 90%;
+	}
+
+	.container-card section {
+		flex-direction: column;
+	}
+
+	.container-card .right {
+		margin-left: 0;
+	}
+}

@@ -1,0 +1,220 @@
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Blog</title>
+		<link
+			href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css"
+			rel="stylesheet"
+			integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9"
+			crossorigin="anonymous"
+		/>
+		<link
+			rel="stylesheet"
+			href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+			integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
+			crossorigin="anonymous"
+			referrerpolicy="no-referrer"
+		/>
+		<script
+			src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"
+			integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm"
+			crossorigin="anonymous"
+		></script>
+	</head>
+	<body>
+		<!-- navbar -->
+		<nav class="navbar navbar-expand-lg bg-body-tertiary">
+			<div class="container">
+				<a class="navbar-brand" href="/">
+					<img
+						src="images/Logo.png"
+						alt="brand-img"
+						style="width: 70px; height: 10vh"
+					/>
+				</a>
+				<button
+					class="navbar-toggler"
+					type="button"
+					data-bs-toggle="collapse"
+					data-bs-target="#navbarSupportedContent"
+					aria-controls="navbarSupportedContent"
+					aria-expanded="false"
+					aria-label="Toggle navigation"
+				>
+					<span class="navbar-toggler-icon"></span>
+				</button>
+				<div class="collapse navbar-collapse" id="navbarSupportedContent">
+					<ul class="navbar-nav me-auto mb-2 mb-lg-0 fs-3">
+						<li class="nav-item ms-3">
+							<a class="nav-link" aria-current="page" href="/">Home</a>
+						</li>
+						{{#if isLogin}}
+							<li class="nav-item ms-3">
+								<a
+									class="nav-link active fw-bolder text-success"
+									href="/blog"
+								>Add Project</a>
+							</li>
+						{{/if}}
+					</ul>
+
+					<div class="d-flex">
+						<ul class="navbar-nav me-auto mb-2 ms-5 mb-lg-0">
+							{{#if isLogin}}
+								<li class="nav-item">
+									<a
+										class="nav-link text-success active fw-semibold"
+										href="#"
+									>Hello, {{user}}</a>
+								</li>
+								<li class="nav-item ms-3">
+									<a class="nav-link" href="/logout">Logout</a>
+								</li>
+							{{else}}
+								<li class="nav-item">
+									<a class="nav-link" href="/register">Register</a>
+								</li>
+								<li class="nav-item ms-3">
+									<a
+										class="nav-link text-success active fw-semibold"
+										href="/login"
+									>Login</a>
+								</li>
+							{{/if}}
+						</ul>
+						<a class="btn btn-success" href="/contact">Contact Me</a>
+					</div>
+				</div>
+			</div>
+		</nav>
+		<!-- end navbar -->
+
+		<!-- Form blog -->
+		<div style="background-color: #dbdbdb">
+			<div class="container py-5">
+				<h1 class="text-center">ADD MY PROJECT</h1>
+				<form method="post" action="blog" enctype="multipart/form-data">
+					<div class="mb-3">
+						<label for="input-title" class="form-label fs-3">Project Name</label>
+						<input
+							type="text"
+							class="form-control shadow-sm"
+							name="name"
+							id="input-title"
+						/>
+					</div>
+					<div class="mb-3 row">
+						<div class="col-md-6">
+							<label for="input-blog-startDate" class="form-label fs-3">Start
+								Date</label>
+							<input
+								type="date"
+								name="start_date"
+								class="form-control shadow-sm"
+								id="input-blog-startDate"
+							/>
+						</div>
+						<div class="col-md-6">
+							<label for="input-blog-endDate" class="form-label fs-3">End Date</label>
+							<input
+								type="date"
+								class="form-control shadow-sm"
+								name="end_date"
+								id="input-blog-endDate"
+							/>
+						</div>
+					</div>
+					<div class="mb-3">
+						<label
+							for="input-blog-content"
+							class="form-label fs-3"
+						>Description</label>
+						<textarea
+							class="form-control shadow-sm"
+							name="description"
+							id="input-blog-content"
+							rows="3"
+							style="height: 200px; resize: none"
+						></textarea>
+					</div>
+					<div class="mb-3">
+						<label class="form-label fs-3">Technologies</label>
+						<div class="row">
+							<div class="col-md-6">
+								<div class="form-check d-flex align-items-center gap-2">
+									<input
+										class="form-check-input"
+										type="checkbox"
+										value="true"
+										name="nodejs"
+										id="checkbox-nodejs"
+									/>
+									<label
+										class="form-check-label fs-3"
+										for="checkbox-nodejs"
+									>Node Js</label>
+								</div>
+								<div class="form-check d-flex align-items-center gap-2">
+									<input
+										class="form-check-input"
+										type="checkbox"
+										value="true"
+										name="reactjs"
+										id="checkbox-reactjs"
+									/>
+									<label
+										class="form-check-label fs-3"
+										for="checkbox-reactjs"
+									>React Js</label>
+								</div>
+							</div>
+							<div class="col-md-6">
+								<div class="form-check d-flex align-items-center gap-2">
+									<input
+										class="form-check-input"
+										type="checkbox"
+										value="true"
+										name="nextjs"
+										id="checkbox-nextjs"
+									/>
+									<label
+										class="form-check-label fs-3"
+										for="checkbox-nextjs"
+									>Next Js</label>
+								</div>
+								<div class="form-check d-flex align-items-center gap-2">
+									<input
+										class="form-check-input"
+										type="checkbox"
+										value="true"
+										name="typescript"
+										id="checkbox-typescript"
+									/>
+									<label
+										class="form-check-label fs-3"
+										for="checkbox-typescript"
+									>TypeScript</label>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="mb-3">
+						<label for="formFile" class="form-label fs-3">Upload Image</label>
+						<input
+							class="form-control"
+							type="file"
+							id="formFile"
+							name="upload-image"
+						/>
+					</div>
+					<div class="mb-3 d-flex justify-content-end my-5">
+						<button class="btn btn-success rounded-pill px-4" type="submit">
+							Submit
+						</button>
+					</div>
+				</form>
+			</div>
+		</div>
+	</body>
+</html>

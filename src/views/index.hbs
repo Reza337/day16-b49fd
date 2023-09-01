@@ -1,0 +1,332 @@
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Personal Web</title>
+		<link
+			href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css"
+			rel="stylesheet"
+		/>
+		<link
+			href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css"
+			rel="stylesheet"
+			integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9"
+			crossorigin="anonymous"
+		/>
+		<link
+			rel="stylesheet"
+			href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+			integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
+			crossorigin="anonymous"
+			referrerpolicy="no-referrer"
+		/>
+		<script
+			src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"
+			integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm"
+			crossorigin="anonymous"
+		></script>
+		<link rel="stylesheet" href="css/index.css" />
+	</head>
+	<body>
+		<!-- navbar -->
+		<nav class="navbar navbar-expand-lg bg-body-tertiary">
+			<div class="container">
+				<a class="navbar-brand" href="/">
+					<img
+						src="images/Logo.png"
+						alt="brand-img"
+						style="width: 70px; height: 10vh"
+					/>
+				</a>
+				<button
+					class="navbar-toggler"
+					type="button"
+					data-bs-toggle="collapse"
+					data-bs-target="#navbarSupportedContent"
+					aria-controls="navbarSupportedContent"
+					aria-expanded="false"
+					aria-label="Toggle navigation"
+				>
+					<span class="navbar-toggler-icon"></span>
+				</button>
+				<div class="collapse navbar-collapse" id="navbarSupportedContent">
+					<ul class="navbar-nav me-auto mb-2 mb-lg-0 fs-3">
+						<li class="nav-item ms-3">
+							<a
+								class="nav-link active fw-bolder text-success"
+								aria-current="page"
+								href="/"
+							>Home</a>
+						</li>
+						{{#if isLogin}}
+							<li class="nav-item ms-3">
+								<a class="nav-link" href="/blog">Add Project</a>
+							</li>
+						{{/if}}
+					</ul>
+
+					<div class="d-flex">
+						<ul class="navbar-nav me-auto mb-2 ms-5 mb-lg-0">
+							{{#if isLogin}}
+								<li class="nav-item">
+									<a
+										class="nav-link text-success active fw-semibold"
+										href="#"
+									>Hello, {{user}}</a>
+								</li>
+								<li class="nav-item ms-3">
+									<a class="nav-link" href="/logout">Logout</a>
+								</li>
+							{{else}}
+								<li class="nav-item">
+									<a class="nav-link" href="/register">Register</a>
+								</li>
+								<li class="nav-item ms-3">
+									<a
+										class="nav-link text-success active fw-semibold"
+										href="/login"
+									>Login</a>
+								</li>
+							{{/if}}
+						</ul>
+						<a class="btn btn-success" href="/contact">Contact Me</a>
+					</div>
+				</div>
+			</div>
+		</nav>
+		<!-- end navbar -->
+
+		{{#if messages.success}}
+			<div class="alert alert-success" role="alert">
+				<div class="container">
+					{{messages.success}}
+				</div>
+			</div>
+		{{/if}}
+
+		<!-- Card Personal -->
+		<div class="container container-card">
+			<div
+				style="
+					width: 100%;
+					margin: 90px auto;
+					display: flex;
+					background-color: #dbdbdb;
+					border: none;
+					border-radius: 10px;
+					box-shadow: 0 0 10px black;
+				"
+			>
+				<section
+					class="d-flex align-items-center"
+					style="width: 90%; margin: auto"
+				>
+					<div style="flex: 70%" class="left me-3">
+						<h1>Hi Welcome to my hut</h1>
+						<p style="text-align: justify">
+							Lorem ipsum dolor sit, amet consectetur adipisicing elit. Magni
+							corporis quis voluptate assumenda qui modi nisi iste quasi
+							obcaecati tempora corrupti, libero adipisci velit maxime debitis
+							voluptatum, cumque repellat saepe. Lorem ipsum, dolor sit amet
+							consectetur adipisicing elit. Illum eos quod eligendi, aspernatur
+							sapiente id autem, cumque nostrum veritatis quisquam dignissimos
+							ad, sit reiciendis magni expedita itaque dolores nesciunt
+							consequatur.
+						</p>
+						<div class="d-flex align-items-center">
+							<a href="/contact">
+								<button
+									type="button"
+									class="btn btn-success rounded-pill me-3 px-4"
+								>
+									Contact
+								</button>
+							</a>
+							<a href="/" style="text-decoration: none; color: black">download
+								CV<i class="fa-solid fa-download text-success"></i></a>
+						</div>
+						<div class="d-flex align-items-center mt-5 fs-2 gap-4">
+							<a
+								href="https://www.linkedin.com/in/muhammadrezafadilah/"
+								class="fa-brands fa-linkedin text-decoration-none text-success"
+							></a>
+							<a
+								href="https://www.instagram.com/rezz.a002/"
+								class="fa-brands fa-instagram text-decoration-none text-success"
+							></a>
+							<a
+								href="https://www.facebook.com/rezafadilah123/"
+								class="fa-brands fa-facebook text-decoration-none text-success"
+							></a>
+							<a
+								href="https://twitter.com/Murf_111"
+								class="fa-brands fa-twitter text-decoration-none text-success"
+							></a>
+						</div>
+					</div>
+					<div style="flex: 30%" class="right justify-content-center">
+						<div
+							class="card-personal my-3 ms-3"
+							style="
+								box-shadow: 0 0 10px black;
+								width: 300px;
+								border-radius: 20px;
+							"
+						>
+							<img
+								src="images/image card.jfif"
+								alt="Ini Gambar"
+								style="
+									width: 100%;
+									max-height: 300px;
+									border-radius: 20px 20px 0 0;
+								"
+							/>
+							<h5 class="text-center">Muhammad Reza Fadilah</h5>
+							<p class="text-center">Fullstack Development</p>
+						</div>
+					</div>
+				</section>
+			</div>
+		</div>
+		<!-- end card personal -->
+
+		<!-- card project -->
+		<div class="container">
+			<div style="width: 100%">
+				<h1 class="text-center my-5">MY PROJECT</h1>
+				<div id="contents" class="d-flex flex-wrap justify-content-center">
+					{{#each data}}
+						{{#if isLogin}}
+							{{#if this.author}}
+								<div
+									style="
+							background-color: #f8f5f2;
+							width: 300px;
+							height: 620px;
+							margin: 30px;
+							border-radius: 10px;
+							box-shadow: 0px 0px 5px;
+							border-style: none;
+						"
+								>
+									<div class="px-3 py-3">
+										<img
+											src="{{this.image}}"
+											style="width: 100%; height: 250px; border-radius: 5px"
+											alt="gambar"
+										/>
+										<a
+											href="/blog-detail/{{this.id}}"
+											class="text-decoration-none text-dark"
+										>
+											<h1 class="fs-6 mt-2">{{this.name}}</h1>
+										</a>
+										<p>{{this.start_date}} - {{this.end_date}}</p>
+										<p>Durasi: {{this.duration}}</p>
+										<div id="container-desc">
+											{{this.description}}
+										</div>
+										<div class="gap-5 fs-3">
+											{{#if this.nodejs}}
+												<i class="fa-brands fa-node"></i>
+											{{/if}}
+											{{#if this.nextjs}}
+												<i class="fa-brands fa-square-js"></i>
+											{{/if}}
+											{{#if this.reactjs}}
+												<i class="fa-brands fa-react"></i>
+											{{/if}}
+											{{#if this.typescript}}
+												<i class="bx bxl-typescript"></i>
+											{{/if}}
+										</div>
+										<p class="fs-8 text-end">- {{this.author}}</p>
+										{{#if this.isLogin}}
+											<div class="d-flex justify-content-between mt-3">
+												<a
+													href="/edit-blog/{{this.id}}"
+													class="btn btn-dark rounded-pill px-5"
+												>edit</a>
+												<a
+													href="/delete-blog/{{this.id}}"
+													class="btn btn-dark rounded-pill px-5"
+												>delete</a>
+											</div>
+										{{/if}}
+									</div>
+								</div>
+							{{/if}}
+						{{else}}
+							<div
+								style="
+							background-color: #f8f5f2;
+							width: 300px;
+							height: 620px;
+							margin: 30px;
+							border-radius: 10px;
+							box-shadow: 0px 0px 5px;
+							border-style: none;
+						"
+							>
+								<div class="px-3 py-3">
+									<img
+										src="{{this.image}}"
+										style="width: 100%; height: 250px; border-radius: 5px"
+										alt="gambar"
+									/>
+									<a
+										href="/blog-detail/{{this.id}}"
+										class="text-decoration-none text-dark"
+									>
+										<h1 class="fs-6 mt-2">{{this.name}}</h1>
+									</a>
+									<p>{{this.start_date}} - {{this.end_date}}</p>
+									<p>Durasi: {{this.duration}}</p>
+									<div id="container-desc">
+										{{this.description}}
+									</div>
+									<div class="gap-5 fs-3">
+										{{#if this.nodejs}}
+											<i class="fa-brands fa-node"></i>
+										{{/if}}
+										{{#if this.nextjs}}
+											<i class="fa-brands fa-square-js"></i>
+										{{/if}}
+										{{#if this.reactjs}}
+											<i class="fa-brands fa-react"></i>
+										{{/if}}
+										{{#if this.typescript}}
+											<i class="bx bxl-typescript"></i>
+										{{/if}}
+									</div>
+									<p class="fs-8 text-end">- {{this.author}}</p>
+									{{#if this.isLogin}}
+										<div class="d-flex justify-content-between mt-3">
+											<a
+												href="/edit-blog/{{this.id}}"
+												class="btn btn-dark rounded-pill px-5"
+											>edit</a>
+											<a
+												href="/delete-blog/{{this.id}}"
+												class="btn btn-dark rounded-pill px-5"
+											>delete</a>
+										</div>
+									{{/if}}
+								</div>
+							</div>
+						{{/if}}
+					{{/each}}
+					<!-- Tampilkan pesan jika tidak ada card project yang sesuai -->
+					{{#if isLogin}}
+						{{#unless data}}
+							<p class="text-center">Anda belum memiliki card project.
+								<a href="/blog">Tambahkan project baru</a></p>
+						{{/unless}}
+					{{/if}}
+				</div>
+			</div>
+		</div>
+		<!-- end card project -->
+	</body>
+</html>

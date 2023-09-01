@@ -1,0 +1,151 @@
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Blog Detail</title>
+		<link
+			href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css"
+			rel="stylesheet"
+		/>
+		<link
+			rel="stylesheet"
+			href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+			integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
+			crossorigin="anonymous"
+			referrerpolicy="no-referrer"
+		/>
+		<link
+			href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css"
+			rel="stylesheet"
+			integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9"
+			crossorigin="anonymous"
+		/>
+		<script
+			src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"
+			integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm"
+			crossorigin="anonymous"
+		></script>
+		<link rel="stylesheet" href="/css/blog-detail.css" />
+	</head>
+	<body>
+		<!-- navbar -->
+		<nav class="navbar navbar-expand-lg bg-body-tertiary">
+			<div class="container">
+				<a class="navbar-brand" href="/">
+					<img
+						src="/images/Logo.png"
+						alt="brand-img"
+						style="width: 70px; height: 10vh"
+					/>
+				</a>
+				<button
+					class="navbar-toggler"
+					type="button"
+					data-bs-toggle="collapse"
+					data-bs-target="#navbarSupportedContent"
+					aria-controls="navbarSupportedContent"
+					aria-expanded="false"
+					aria-label="Toggle navigation"
+				>
+					<span class="navbar-toggler-icon"></span>
+				</button>
+				<div class="collapse navbar-collapse" id="navbarSupportedContent">
+					<ul class="navbar-nav me-auto mb-2 mb-lg-0 fs-3">
+						<li class="nav-item ms-3">
+							<a class="nav-link" aria-current="page" href="/">Home</a>
+						</li>
+						{{#if isLogin}}
+							<li class="nav-item ms-3">
+								<a
+									class="nav-link active fw-bolder text-success"
+									href="/blog"
+								>Add Project</a>
+							</li>
+						{{/if}}
+					</ul>
+
+					<div class="d-flex">
+						<ul class="navbar-nav me-auto mb-2 ms-5 mb-lg-0">
+							{{#if isLogin}}
+								<li class="nav-item">
+									<a
+										class="nav-link text-success active fw-semibold"
+										href="#"
+									>Hello, {{user}}</a>
+								</li>
+								<li class="nav-item ms-3">
+									<a class="nav-link" href="/logout">Logout</a>
+								</li>
+							{{else}}
+								<li class="nav-item">
+									<a class="nav-link" href="/register">Register</a>
+								</li>
+								<li class="nav-item ms-3">
+									<a
+										class="nav-link text-success active fw-semibold"
+										href="/login"
+									>Login</a>
+								</li>
+							{{/if}}
+						</ul>
+						<a class="btn btn-success" href="/contact">Contact Me</a>
+					</div>
+				</div>
+			</div>
+		</nav>
+		<!-- end navbar -->
+
+		<!-- Blog Detail -->
+		<div class="blog-detail">
+			<h1>{{blog.name}}</h1>
+			<div class="header-detail">
+				<div class="left-header">
+					<img src="../{{blog.image}}" alt="gambar" />
+				</div>
+
+				<div class="right-header">
+					<div class="duration">
+						<h2>{{blog.duration}}</h2>
+						<p><i class="bx bxs-calendar"></i>{{blog.start_date}}
+							-
+							{{blog.end_date}}</p>
+
+						<p><i class="bx bx-time-five"></i>{{blog.duration}}</p>
+					</div>
+					<div class="technologi">
+						<h2>Technologies</h2>
+						<div class="icon">
+							<div>
+								{{#if blog.nodejs}}
+									<p>
+										<i class="bx bxl-nodejs"></i>
+										Node Js
+									</p>
+								{{/if}}
+								{{#if blog.reactjs}}
+									<p><i class="bx bxl-react"></i>React Js</p>
+								{{/if}}
+							</div>
+							<div>
+								{{#if blog.typescript}}
+									<p><i class="bx bxl-typescript"></i>Typescript</p>
+								{{/if}}
+								{{#if blog.nextjs}}
+									<p><i class="fa-brands fa-square-js"></i>Next Js</p>
+								{{/if}}
+							</div>
+						</div>
+					</div>
+					<p class="fs-8 mt-3">Author : {{blog.author}}</p>
+				</div>
+			</div>
+			<div class="paragraph">
+				<p>
+					{{blog.description}}
+				</p>
+			</div>
+		</div>
+
+		<script src="../js/index.js"></script>
+	</body>
+</html>

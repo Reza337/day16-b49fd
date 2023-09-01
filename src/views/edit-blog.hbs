@@ -1,0 +1,171 @@
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Blog</title>
+		<link
+			href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css"
+			rel="stylesheet"
+			integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9"
+			crossorigin="anonymous"
+		/>
+		<link
+			rel="stylesheet"
+			href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+			integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
+			crossorigin="anonymous"
+			referrerpolicy="no-referrer"
+		/>
+		<script
+			src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"
+			integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm"
+			crossorigin="anonymous"
+		></script>
+	</head>
+	<body>
+
+		<!-- Form blog -->
+		<div style="background-color: #dbdbdb">
+			<div class="container py-5">
+				<h1 class="text-center">ADD MY PROJECT</h1>
+				<form
+					method="post"
+					action="/update-blog/{{blogIndex}}"
+					enctype="multipart/form-data"
+				>
+					<div class="mb-3">
+						<label for="input-title" class="form-label fs-3">Project Name</label>
+						<input
+							type="text"
+							class="form-control shadow-sm"
+							name="name"
+							placeholder="{{blog.name}}"
+							value="{{blog.name}}"
+							id="input-title"
+						/>
+					</div>
+					<div class="mb-3 row">
+						<div class="col-md-6">
+							<label for="input-blog-startDate" class="form-label fs-3">Start
+								Date</label>
+							<input
+								type="date"
+								name="start_date"
+								value="{{blog.start_date}}"
+								class="form-control shadow-sm"
+								id="input-blog-startDate"
+							/>
+						</div>
+						<div class="col-md-6">
+							<label for="input-blog-endDate" class="form-label fs-3">End Date</label>
+							<input
+								type="date"
+								class="form-control shadow-sm"
+								name="end_date"
+								value="{{blog.end_date}}"
+								id="input-blog-endDate"
+							/>
+						</div>
+					</div>
+					<div class="mb-3">
+						<label
+							for="input-blog-content"
+							class="form-label fs-3"
+						>Description</label>
+						<textarea
+							class="form-control shadow-sm"
+							name="description"
+							placeholder="{{blog.description}}"
+							value="{{blog.description}}"
+							id="input-blog-content"
+							rows="3"
+							style="height: 200px; resize: none"
+						>{{blog.description}}</textarea>
+					</div>
+					<div class="mb-3">
+						<label class="form-label fs-3">Technologies</label>
+						<div class="row">
+							<div class="col-md-6">
+								<div class="form-check d-flex align-items-center gap-2">
+									<input
+										class="form-check-input"
+										type="checkbox"
+										value="true"
+										name="nodejs"
+										id="checkbox-nodejs"
+										{{!-- {{#if blog.nodejs}} checked {{/if}} --}}
+									/>
+									<label
+										class="form-check-label fs-3"
+										for="checkbox-nodejs"
+									>Node Js</label>
+								</div>
+								<div class="form-check d-flex align-items-center gap-2">
+									<input
+										class="form-check-input"
+										type="checkbox"
+										value="true"
+										name="reactjs"
+										id="checkbox-reactjs"
+										{{!-- {{#if blog.reactjs}} checked {{/if}} --}}
+									/>
+									<label
+										class="form-check-label fs-3"
+										for="checkbox-reactjs"
+									>React Js</label>
+								</div>
+							</div>
+							<div class="col-md-6">
+								<div class="form-check d-flex align-items-center gap-2">
+									<input
+										class="form-check-input"
+										type="checkbox"
+										value="true"
+										name="nextjs"
+										id="checkbox-nextjs"
+										{{!-- {{#if blog.nextjs}} checked {{/if}} --}}
+									/>
+									<label
+										class="form-check-label fs-3"
+										for="checkbox-nextjs"
+									>Next Js</label>
+								</div>
+								<div class="form-check d-flex align-items-center gap-2">
+									<input
+										class="form-check-input"
+										type="checkbox"
+										value="true"
+										name="typescript"
+										id="checkbox-typescript"
+										{{!-- {{#if blog.typescript}} checked {{/if}} --}}
+									/>
+									<label
+										class="form-check-label fs-3"
+										for="checkbox-typescript"
+									>TypeScript</label>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="mb-3">
+						<label for="formFile" class="form-label fs-3">Upload Image</label>
+						<input
+							class="form-control"
+							name="upload-image"
+							type="file"
+							placeholder="{{blog.image}}"
+							value="{{blog.image}}"
+							id="formFile"
+						/>
+					</div>
+					<input type="hidden" name="blogIndex" value="{{blogIndex}}" />
+					<div class="mb-3 d-flex justify-content-end my-5">
+						<button class="btn btn-success rounded-pill px-4" type="submit">
+							Submit
+						</button>
+					</div>
+				</form>
+			</div>
+		</div>
+	</body>
+</html>
